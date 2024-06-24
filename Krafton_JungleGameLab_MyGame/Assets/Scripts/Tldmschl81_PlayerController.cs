@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tldmschl81_PlayerController : MonoBehaviour
 {
-    [Header("Plater-State")]
+    [Header("Player-State")]
     public float speed;
     public float jumpForce;
     public float horizontalInput, verticalInput;
@@ -92,19 +92,6 @@ public class Tldmschl81_PlayerController : MonoBehaviour
             // Move Horizontal
             horizontalInput = Input.GetAxis("Horizontal");
             transform.Translate(Vector2.right * Time.deltaTime * speed * horizontalInput);
-            if(useLantern)
-            {
-                if(horizontalInput > 0)
-                {
-                    lanterns[1].transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
-                    lanterns[1].transform.position = new Vector3(transform.position.x + lanternOffsetX, lanterns[1].transform.position.y, lanternOffsetZ);
-                }
-                else if (horizontalInput < 0)
-                {
-                    lanterns[1].transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
-                    lanterns[1].transform.position = new Vector3(transform.position.x - lanternOffsetX, lanterns[1].transform.position.y, lanternOffsetZ);
-                }
-            }
         }
     }
 
